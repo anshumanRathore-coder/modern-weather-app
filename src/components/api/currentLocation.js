@@ -1,7 +1,4 @@
-import { useRef } from "react";
-
-export const currentLocation = async() => {
-
+export const currentLocation = async () => {
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -9,7 +6,7 @@ export const currentLocation = async() => {
           const { latitude, longitude } = position.coords;
           const location = {
             latitude,
-            longitude
+            longitude,
           };
           resolve(location);
         },
@@ -21,4 +18,4 @@ export const currentLocation = async() => {
       reject(new Error("Browser does not support location"));
     }
   });
-}
+};
