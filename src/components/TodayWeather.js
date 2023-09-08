@@ -40,7 +40,7 @@ export default function CurrentLocationWeather({ todayWeatherReport }) {
               <VStack>
                 <Heading>{todayWeatherReport.weather.datetime}</Heading>
                 <Heading>{capitialize(todayWeatherReport.place)}</Heading>
-                <Heading fontSize="7em" ml="5px">
+                <Heading fontSize="5em" ml="5px">
                   {todayWeatherReport.weather.temp}<sup>o</sup>C
                 </Heading>
                 <Heading fontSize="1.5em">
