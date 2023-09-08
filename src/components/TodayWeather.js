@@ -41,7 +41,7 @@ export default function CurrentLocationWeather({ todayWeatherReport }) {
                 <Heading>{todayWeatherReport.weather.datetime}</Heading>
                 <Heading>{capitialize(todayWeatherReport.place)}</Heading>
                 <Heading fontSize="7em" ml="5px">
-                  28<sup>o</sup>C
+                  {todayWeatherReport.weather.temp}<sup>o</sup>C
                 </Heading>
                 <Heading fontSize="1.5em">
                   {todayWeatherReport.weather.conditions}
