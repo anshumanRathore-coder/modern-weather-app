@@ -20,6 +20,16 @@ export default function Navbar({ dispatch }) {
     setInputValue(event.target.value);
   };
   const handleSearch = () => {
+    if(inputValue===""){
+      toast({
+        description: "Search box is empty",
+        status: "warning",
+        duration: 4000,
+        isClosable: true,
+        // refInput.current.value=""
+      });
+    }
+    else{
     dispatch({ type: "searchCity", value: inputValue });
     toast({
       description: "Your location weather updated",
@@ -28,6 +38,7 @@ export default function Navbar({ dispatch }) {
       isClosable: true,
       // refInput.current.value=""
     });
+  }
   };
   const handleLocation = () => {
     dispatch({ type: "currentLocation", value: true });

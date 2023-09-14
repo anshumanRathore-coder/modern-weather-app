@@ -5,11 +5,11 @@ export const fetchCurrentLocationWeather = async () => {
     const coordinates = await currentLocation();
     const { latitude, longitude } = coordinates;
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude},${longitude}?key=FY3VRBH62QLJ32XNTXHKEJJWC&include=days&unitGroup=metric&elements=tempmax,tempmin,temp,humidity,visibility,windspeed,datetime,conditions,sunrise,sunset,precipprob,solarradiation,uvindex,description`
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude},${longitude}?key=${process.env.REACT_APP_WEATHER_API}&include=days&unitGroup=metric&elements=tempmax,tempmin,temp,humidity,visibility,windspeed,datetime,conditions,sunrise,sunset,precipprob,solarradiation,uvindex,description`
     );
     const jsonData = await response.json();
     const reverseGeoCoding = await fetch(
-      `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=b078b0c9f37f488c9878bdab0c6b37d3`
+      `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${process.env.REACT_APP_REVERSE_GEO_API}`
     );
     const jsonReverGeocoding = await reverseGeoCoding.json();
     const data = {
